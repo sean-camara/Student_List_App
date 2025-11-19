@@ -1,0 +1,137 @@
+﻿<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MAUIApp7.MainPage"
+    Title="Students"
+    BackgroundColor="#FFFFFF">
+
+    <Grid Padding="14"
+          RowSpacing="10"
+          ColumnSpacing="10"
+          RowDefinitions="Auto, Auto, Auto, Auto, *">
+
+        <Entry x:Name="newStudent"
+               Grid.Row="0"
+               Placeholder="Enter name"
+               HorizontalOptions="Fill"
+               BackgroundColor="#FFFDF7"
+               TextColor="#1F2937"
+               Margin="0,0,0,4"/>
+
+        <Grid Grid.Row="1" ColumnSpacing="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Text="Add Student"
+                    Grid.Column="0"
+                    Clicked="OnNewButtonClicked"
+                    BackgroundColor="#FFD580"
+                    TextColor="#1F2937"
+                    CornerRadius="8"
+                    HeightRequest="40" />
+
+            <Button Text="Get Section List"
+                    Grid.Column="1"
+                    Clicked="OnGetButtonClicked"
+                    BackgroundColor="#0369A1"
+                    TextColor="White"
+                    CornerRadius="8"
+                    HeightRequest="40"
+                    Padding="12,0"/>
+        </Grid>
+
+        <Label x:Name="statusMessage"
+               Grid.Row="2"
+               TextColor="#065F46"
+               FontSize="12"
+               Margin="0,6,0,0"/>
+
+        <BoxView Grid.Row="3" HeightRequest="1" Color="#F1F1F1" />
+
+        <CollectionView x:Name="sectionList"
+                        Grid.Row="4"
+                        Margin="4,10,4,10"
+                        SelectionMode="None"
+                        ItemsLayout="VerticalList"
+                        RemainingItemsThreshold="8"
+                        RemainingItemsThresholdReached="OnRemainingItemsThresholdReached">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="14"
+                           Padding="10"
+                           Margin="8,4"
+                           HasShadow="True"
+                           BorderColor="#EFEFEF"
+                           BackgroundColor="{Binding CardColor}">
+
+                        <Grid ColumnDefinitions="64, *, 100" RowDefinitions="Auto">
+                            <!-- Avatar circle -->
+                            <Frame CornerRadius="28"
+                                   HeightRequest="56"
+                                   WidthRequest="56"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   BackgroundColor="#FFF6E0"
+                                   BorderColor="#FFE2A8"
+                                   Padding="0"
+                                   HasShadow="False">
+                                <Label Text="{Binding Initial}"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#1F2937"/>
+                            </Frame>
+
+                            <!-- Name and subtitle -->
+                            <StackLayout Grid.Column="1"
+                                         VerticalOptions="Center"
+                                         Spacing="2"
+                                         Padding="8,0,4,0">
+                                <Label Text="{Binding Name}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="#1F2937"
+                                       LineBreakMode="TailTruncation" />
+                                <Label Text="{Binding Subtitle}"
+                                       FontSize="12"
+                                       TextColor="#6B7280"/>
+                            </StackLayout>
+
+                            <!-- Action buttons stacked vertically and centered -->
+                            <StackLayout Grid.Column="2"
+                                         VerticalOptions="Center"
+                                         HorizontalOptions="End"
+                                         Spacing="6"
+                                         Padding="6,0,0,0">
+                                <Button Text="Edit"
+                                        FontSize="12"
+                                        Padding="10,6"
+                                        BackgroundColor="#E6E7EA"
+                                        TextColor="#1F2937"
+                                        CornerRadius="8"
+                                        HeightRequest="36"
+                                        Clicked="OnEditClicked"
+                                        BindingContext="{Binding .}" />
+
+                                <Button Text="Delete"
+                                        FontSize="12"
+                                        Padding="10,6"
+                                        BackgroundColor="#FEE2E2"
+                                        TextColor="#7F1D1D"
+                                        CornerRadius="8"
+                                        HeightRequest="36"
+                                        Clicked="OnDeleteClicked"
+                                        BindingContext="{Binding .}" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>
