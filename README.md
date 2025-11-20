@@ -1,7 +1,11 @@
 # 07 Laboratory Exercise 1
 
-![Add Confirmation Screenshot](images/student-added.jpeg)
-![Student List Screenshot](images/student-list.jpeg)
+<table>
+  <tr>
+    <td><img src="images/student-added.jpeg" alt="Add Confirmation Screenshot" width="300"/></td>
+    <td><img src="images/student-list.jpeg" alt="Student List Screenshot" width="300"/></td>
+  </tr>
+</table>
 
 > 📱 **This is what the app looks like in action.**  
 > You can add, edit, and delete student records with a clean, responsive UI.  
