@@ -1,5 +1,14 @@
 # 07 Laboratory Exercise 1
 
+![Add Confirmation Screenshot](images/student-added.jpeg)
+![Student List Screenshot](images/student-list.jpeg)
+
+> 📱 **This is what the app looks like in action.**  
+> You can add, edit, and delete student records with a clean, responsive UI.  
+> Each student is displayed in a pale card with initials, name, ID, and action buttons — optimized for clarity and performance.
+
+---
+
 ## Student List App — overview
 
 This is my Student List App, a simple .NET MAUI project I built for a lab exercise. It demonstrates CRUD (Create, Read, Update, Delete) operations using SQLite and has a clean, pale card-style UI for managing student records. I focused on making the app responsive by using asynchronous database calls and incremental loading so it stays fast even with many records.
